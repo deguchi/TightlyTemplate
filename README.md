@@ -1,5 +1,5 @@
-# LooselyTemplate
-npm scripts で pug+sassがビルドできてオートリロードできるサイト作成環境を書く  
+# TightlyTemplate
+npm scripts で pug+sass+TypeScriptがビルドできてオートリロードできるサイト作成環境を書く  
 javascriptも修正するとオートリロードする（コンパイルはしない）
 
 ## 使い方
@@ -22,14 +22,9 @@ npm install --global --production windows-build-tools
 
 
 
-## デモ
-https://template-npm-scripts.netlify.com/
-
 ## ライセンスについて
 
 The MIT License (MIT)
-
-Copyright (c) 2019 CALIL Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
