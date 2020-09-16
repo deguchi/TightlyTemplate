@@ -1,5 +1,5 @@
 function hello(name: string): string {
     return `Hello, ${name}!`;
-  }
-  
-  console.log(hello("TightlyTemplate"));
+}
+
+console.log(hello("TightlyTemplate"));
