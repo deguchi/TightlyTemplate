@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx npm-run-all clean build:sass build:ts build:autoprefixer build:copy:assets watch -p",
+    "start": "npx npm-run-all clean build:** watch -s",
     "clean": "npx rimraf build",
-    "watch": "concurrently \"npm run watch:pug\" \"npm run watch:sass\" \"npm run watch:ts\" \"npm run watch:browser-sync\"",
+    "watch": "concurrently \"npm run watch:**\" \"npm run watch:browser-sync\"",
     "watch:browser-sync": "npx browser-sync start --config ./bs-config.js",
-    "watch:ts": "npm run build:ts -- --watch",
+    "watch:ts": "./node_modules/.bin/chokidar \"./src/**/*.ts\" --command \"build:ts && npm run build:browserify\"",
     "watch:sass": "./node_modules/.bin/chokidar \"./src/**/*.sass\" --command \"npm run build:sass && npm run build:autoprefixer\"",
     "watch:pug": "npm run build:pug -- --watch --pretty",
     "build": "npx npm-run-all clean build:** -s",
     "build:ts": "npx tsc",
+    "build:browserify": "npx browserify build/index.js -o build/index.js",
     "build:sass": "npx node-sass ./src/index.sass ./build/index.css --output-style compressed",
     "build:autoprefixer": "npx postcss ./build/index.css -o ./build/index.css --config ./postcss.config.js",
     "build:pug": "npx pug -O pug_env.js src/ --out ./build/",
@@ -52,9 +53,5 @@
     "sass": "^1.26.3",
     "typescript": "^4.0.2"
   },
-  "resolutions": {
-    "minimist": "^1.2.5",
-    "acorn": "^5.7.4",
-    "braces": "^2.3.1"
-  }
+  "resolutions": {}
 }
