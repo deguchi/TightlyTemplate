@@ -20,7 +20,7 @@
     "build:pug": "pug -O pug_env.js src/ --out ./build/",
     "build:copy:assets": "cpx \"src/assets/**/*\" build/assets/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm-force-resolutions"
+    "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
