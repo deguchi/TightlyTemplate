@@ -12,7 +12,7 @@
     "watch:sass": "chokidar \"./src/**/*.sass\" --command \"npm run build:sass && npm run build:autoprefixer\"",
     "watch:ts": "chokidar \"./src/**/*.ts\" --command \"npm run build:ts\"",
     "build": "npm-run-all clean build:** -s",
-    "build:ts": "esbuild ./src/index.ts --outfile=./build/index.js --bundle --define:process.env.NODE_ENV='\"production\"'",
+    "build:ts": "esbuild ./src/index.ts --outfile=./build/index.js --bundle --minify --sourcemap --define:process.env.NODE_ENV='\"production\"'",
     "//build:browserify": "browserify -p esmify build/index.js -o build/index.ts.js",
     "build:sass": "sass ./src/index.sass ./build/index.css --style compressed --no-source-map",
     "build:autoprefixer": "postcss ./build/index.css -o ./build/index.css --config ./postcss.config.js",
