@@ -1,5 +1,5 @@
 # TightlyTemplate
-npm scripts で pug+sass+TypeScriptがビルドできてオートリロードできるサイト作成環境を書く  
+npm scripts で pug+sass+TypeScript+Reactがビルドできてオートリロードできるサイト作成環境を書く  
 
 ## 使い方
 
