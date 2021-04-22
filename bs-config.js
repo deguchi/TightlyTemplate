@@ -28,7 +28,7 @@ module.exports = {
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": './docs/',
+    "server": './build/',
     "proxy": false,
     "port": 3000,
     "middleware": false,

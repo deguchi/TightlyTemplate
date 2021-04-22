@@ -9,15 +9,15 @@
     "watch": "concurrently \"npm run watch:pug\" \"npm run watch:sass\" \"npm run watch:ts\" \"npm run watch:browser-sync\"",
     "watch:browser-sync": "browser-sync start --config ./bs-config.js",
     "watch:pug": "npm run build:pug -- --watch --pretty",
-    "watch:sass": "chokidar \"./src/**/*.sass\" --command \"npm run build:sass && npm run build:autoprefixer\"",
+    "watch:sass": "chokidar \"./src/**/*.sass\" --command \"npm run build:sass\"",
     "watch:ts": "chokidar \"./src/**/*.tsx\" --command \"npm run build:ts\"",
     "build": "npm-run-all clean build:** -s",
-    "build:ts": "esbuild ./src/index.tsx --outfile=./docs/index.js --bundle --minify --sourcemap --define:process.env.NODE_ENV='\"production\"'",
-    "//build:browserify": "browserify -p esmify docs/index.js -o docs/index.ts.js",
-    "build:sass": "sass ./src/index.sass ./docs/index.css --style compressed --no-source-map",
-    "build:autoprefixer": "postcss ./docs/index.css -o ./docs/index.css --config ./postcss.config.js",
-    "build:pug": "pug -O pug_env.js src/ --out ./docs/",
-    "build:copy:assets": "cpx \"src/assets/**/*\" docs/assets/",
+    "build:ts": "esbuild ./src/index.tsx --outfile=./build/index.js --bundle --minify --sourcemap --define:process.env.NODE_ENV='\"production\"'",
+    "//build:ts:forIE11": "webpack",
+    "build:sass": "sass ./src/index.sass ./build/index.css --style compressed --no-source-map",
+    "//build:autoprefixer": "postcss ./build/index.css -o ./build/index.css --config ./postcss.config.js",
+    "build:pug": "pug -O pug_env.js src/ --out ./build/",
+    "build:copy:assets": "cpx \"src/assets/**/*\" build/assets/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npx npm-force-resolutions"
   },
@@ -51,7 +51,10 @@
     "pug-cli": "github:pugjs/pug-cli#master",
     "rimraf": "^3.0.2",
     "sass": "^1.26.3",
-    "typescript": "^4.0.2"
+    "ts-loader": "^9.0.2",
+    "typescript": "^4.0.2",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
   },
   "resolutions": {
     "minimist": ">=1.2.5"
@@ -59,7 +62,9 @@
   "dependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "core-js": "^2.6.12",
     "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1"
   }
 }
