@@ -34,7 +34,7 @@
   "dependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "core-js": "^2.6.12",
+    "core-js": "^3.10.2",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1"
@@ -66,8 +66,5 @@
   },
   "resolutions": {
     "minimist": ">=1.2.5"
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
   }
 }
