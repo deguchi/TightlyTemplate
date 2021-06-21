@@ -8,7 +8,6 @@ npm install
 npm start
 ```
 
-
 ## ライセンスについて
 
 The MIT License (MIT)
