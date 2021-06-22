@@ -17,5 +17,4 @@ class App extends Component<Props, State> {
         </React.Fragment>);
     }
 }
-
 export default App
