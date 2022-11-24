@@ -17,8 +17,9 @@ jobs:
 #             ${{ runner.OS }}-
       - name: Install and Build 🔧
         run: |
-          npm install --no-optional
+          npm install
           npm run build
+#          npm install --no-optional
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
